@@ -1,0 +1,18 @@
+version: "3.7"
+
+services:
+  front:
+    container_name: "mrb_front"
+    image: node:alpine
+    working_dir: /app
+    volumes:
+      - ./front:/app
+    command: [ "npm", "start" ]
+
+  api:
+    container_name: "mrb_api"
+    image: rust:alpine
+    working_dir: /api
+    volumes:
+      - ./api:/api
+    command: [ "cargo", "run" ]
