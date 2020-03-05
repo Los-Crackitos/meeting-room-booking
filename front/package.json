@@ -1,14 +1,14 @@
 {
-  "name": "Meeting room Booking",
+  "name": "meeting-room-booking",
   "description": "Web application used to book meeting rooms in secs",
   "version": "1.0.0",
   "authors": [
     {
-      "name" : "Jérôme Pogeant",
-      "url" : "https://jeromepogeant.com/"
+      "name": "Jérôme Pogeant",
+      "url": "https://jeromepogeant.com/"
     },
     {
-      "name" : "Robin Baraffe"
+      "name": "Robin Baraffe"
     }
   ],
   "license": "MIT",
