@@ -4,10 +4,10 @@ services:
   front:
     container_name: "mrb_front"
     image: node:alpine
-    working_dir: /app
     volumes:
       - ./front:/app
-    command: [ "npm", "start" ]
+    working_dir: /app
+    entrypoint: ["./entrypoint.sh", "npm", "start"]
 
   api:
     container_name: "mrb_api"
