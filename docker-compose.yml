@@ -5,14 +5,14 @@ services:
     container_name: "mrb_front"
     image: node:alpine
     volumes:
-      - ./front:/app
+      - "./front:/app"
     working_dir: /app
-    entrypoint: ["./entrypoint.sh", "npm", "start"]
+    entrypoint: [ "./entrypoint.sh", "npm", "run", "dev" ]
 
   api:
     container_name: "mrb_api"
     image: rust:alpine
     working_dir: /api
     volumes:
-      - ./api:/api
+      - "./api:/api"
     command: [ "cargo", "run" ]
