@@ -1,30 +1,19 @@
 <script>
-	export let name;
+  import { fade } from "svelte/transition"
+  import Footer from './footer/Footer.svelte';
+  import Nav from './nav/Nav.svelte';
+  import { isMenuOpened, toggleMenu } from './store';
 </script>
 
-<main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+{#if $isMenuOpened}
+  <div
+    class="z-10 bg-black opacity-50 h-screen w-screen absolute cursor-pointer"
+    transition:fade={{ duration: 200 }}
+    on:click={toggleMenu}
+  />
+{/if}
+<main class="h-screen flex flex-col justify-between">
+  <Nav/>
+  <section></section>
+  <Footer/>
 </main>
-
-<style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
-</style>
