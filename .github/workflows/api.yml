@@ -1,0 +1,15 @@
+name: Api
+
+on:
+  push:
+    paths:
+      - 'api/*'
+
+jobs:
+  coding-style:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Check rustlint
+        working-directory: ./api
+        run: cargo clippy
