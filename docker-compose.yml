@@ -11,8 +11,8 @@ services:
 
   api:
     container_name: "mrb_api"
-    image: rust:alpine
+    image: rustlang/rust:nightly
     working_dir: /api
     volumes:
       - "./api:/api"
-    command: [ "cargo", "run" ]
+    command: ["./entrypoint.sh", "cargo", "run" ]
