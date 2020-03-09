@@ -46,7 +46,8 @@
     "svelte": "^3.0.0",
     "svelte-preprocess": "^3.4.0",
     "svelte-preprocess-postcss": "^1.1.1",
-    "tailwindcss": "^1.2.0"
+    "tailwindcss": "^1.2.0",
+    "tailwindcss-children": "^2.0.0"
   },
   "dependencies": {}
 }
