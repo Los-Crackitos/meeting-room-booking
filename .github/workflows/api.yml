@@ -1,9 +1,7 @@
 name: Api
 
 on:
-  push:
-    paths:
-      - 'api/*'
+  [push]
 
 jobs:
   coding-style:
