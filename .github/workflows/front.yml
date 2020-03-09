@@ -1,0 +1,15 @@
+name: Front
+
+on:
+  push:
+    paths:
+      - 'front/*'
+
+jobs:
+  coding-style:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Check eslint
+        working-directory: ./front
+        run: npm i && npm run lint
