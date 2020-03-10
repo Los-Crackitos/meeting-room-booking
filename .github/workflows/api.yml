@@ -7,7 +7,8 @@ jobs:
   coding-style:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions-rs/cargo@v1
-        with:
-          args: cd api && cargo clippy
+      steps:
+        - uses: actions/checkout@v1
+        - uses: icepuma/rust-action@master
+          with:
+            args: cd api && cargo fmt -- --check && cargo clippy
