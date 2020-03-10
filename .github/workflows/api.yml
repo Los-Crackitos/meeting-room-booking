@@ -7,6 +7,7 @@ jobs:
   coding-style:
     runs-on: ubuntu-latest
     steps:
-        - uses: actions/checkout@v1
-          with:
-            args: cd api && cargo fmt -- --check && cargo clippy
+      - uses: actions/checkout@v1
+      - name: Check eslint
+        working-directory: ./api
+        run: cd api && cargo clippy 
