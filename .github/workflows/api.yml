@@ -10,4 +10,4 @@ jobs:
       - uses: actions/checkout@v1
       - name: Check eslint
         working-directory: ./api
-        run: cargo clippy 
+        run: rustup override set nightly && cargo clippy 
