@@ -1,0 +1,13 @@
+name: Api
+
+on:
+  [push]
+
+jobs:
+  coding-style:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Check eslint
+        working-directory: ./api
+        run: rustup override set nightly && cargo clippy 
