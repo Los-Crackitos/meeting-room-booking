@@ -2,7 +2,6 @@
 
 #[macro_use] extern crate rocket;
 #[macro_use] extern crate rocket_contrib;
-#[macro_use] extern crate serde_derive;
 
 extern crate postgres;
 
@@ -60,7 +59,6 @@ fn main() {
 
 
     rocket::ignite()
-        .mount("/room", routes![read_all, create_room])
-        .mount("/rooms", routes![read])
+        .mount("/room", routes![read_all])
         .launch();
 }
