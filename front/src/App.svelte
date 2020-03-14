@@ -2,6 +2,7 @@
   import { fade } from "svelte/transition"
   import Footer from './footer/Footer.svelte';
   import Nav from './nav/Nav.svelte';
+  import Calendar from './calendar/Calendar.svelte';
   import { isMenuOpened, toggleMenu } from './store';
 </script>
 
@@ -14,6 +15,6 @@
 {/if}
 <main class="h-screen flex flex-col justify-between">
   <Nav/>
-  <section></section>
+  <Calendar/>
   <Footer/>
 </main>
