@@ -1,7 +1,9 @@
 name: Api
 
 on:
-  [push]
+  push:
+    paths:
+      - 'api/*'
 
 jobs:
   coding-style:
@@ -10,4 +12,4 @@ jobs:
       - uses: actions/checkout@v1
       - name: Check eslint
         working-directory: ./api
-        run: rustup override set nightly && cargo clippy 
+        run: rustup override set nightly && cargo clippy
