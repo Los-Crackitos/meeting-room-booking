@@ -4,3 +4,10 @@ services:
   front:
     ports:
       - 7000:5000
+  api:
+    ports:
+      - 8888:8000
+      
+  pg-admin:
+    ports:
+      - 8080:80
