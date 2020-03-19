@@ -3,12 +3,12 @@
 #[macro_use] extern crate rocket;
 #[macro_use] extern crate rocket_contrib;
 
-extern crate postgres;
+//extern crate postgres;
 
 use rocket_contrib::json::{Json, JsonValue};
-use dotenv;
-use std::format;
-use postgres::{Connection, TlsMode};
+//use dotenv;
+//use std::format;
+//use postgres::{Connection, TlsMode};
 
 
 #[get("/")]
@@ -21,7 +21,7 @@ fn read_all() -> Json<JsonValue> {
 
 fn main() {
     
-    dotenv::dotenv().ok(); // Load .env
+    /*dotenv::dotenv().ok(); // Load .env
 
     let db_host = dotenv::var("POSTGRES_DB_HOST").unwrap();
     let db_name = dotenv::var("POSTGRES_DB_NAME").unwrap();
@@ -55,9 +55,9 @@ fn main() {
        
         CONSTRAINT fk_user FOREIGN KEY (user_id)
             REFERENCES public.users (id)
-    )", &[]).unwrap();
+    )", &[]).unwrap();*/
 
-
+   
     rocket::ignite()
         .mount("/room", routes![read_all])
         .launch();
