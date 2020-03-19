@@ -1,4 +1,3 @@
--- Your SQL goes here
 CREATE TABLE booking
 (
     id SERIAL PRIMARY KEY,
