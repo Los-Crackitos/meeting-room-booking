@@ -6,4 +6,4 @@ export function toggleMenu() {
   isMenuOpened.update((isOpen) => !isOpen);
 }
 
-export const userName = writable("");
+export const userName = writable('');
