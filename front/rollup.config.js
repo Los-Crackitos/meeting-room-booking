@@ -5,6 +5,7 @@ import livereload from 'rollup-plugin-livereload';
 import postcss from 'rollup-plugin-postcss';
 import { terser } from 'rollup-plugin-terser';
 import svelte_preprocess_postcss from 'svelte-preprocess-postcss';
+import { routify } from '@sveltech/routify'
 
 const production = !process.env.ROLLUP_WATCH;
 
