@@ -9,9 +9,9 @@ jobs:
   coding-style:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+      #- name: Checkout
+      #  uses: actions/checkout@v2
       - name: Run golangci-lint
         uses: actions-contrib/golangci-lint@v1
-        #working-directory: ./api2
-        #run: golangci-lint
+        working-directory: ./api2
+        run: golangci-lint
