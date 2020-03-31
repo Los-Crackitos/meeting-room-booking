@@ -10,5 +10,5 @@ pub fn get_users() -> Vec<User> {
 
     users.limit(5)
         .load::<User>(&connection)
-        .expect("Error loading posts")
+        .expect("Error loading users")
 }

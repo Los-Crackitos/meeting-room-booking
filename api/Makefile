@@ -1,2 +1,2 @@
-coding_style:
+coding-style:
 	cargo clippy
