@@ -1,21 +1,24 @@
 #![feature(proc_macro_hygiene, decl_macro)]
 
-#[macro_use] extern crate rocket;
-#[macro_use] extern crate rocket_contrib;
+#[macro_use]
+extern crate rocket;
+extern crate rocket_contrib;
+extern crate api;
 
-use rocket_contrib::json::{Json, JsonValue};
+use rocket_contrib::json::{Json};
 
-#[get("/")]
-fn read_all() -> Json<JsonValue> {
-    Json(json!([
-        "hero 1", 
-        "hero 2"
-    ]))
+
+
+use api::models::User;
+use api::db::users::get_users;
+
+#[get("/user")]
+fn user() -> Json<Vec<User>> {
+    Json(get_users())
 }
 
 fn main() {
-       
     rocket::ignite()
-        .mount("/room", routes![read_all])
+        .mount("/api", routes![user])
         .launch();
 }

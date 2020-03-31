@@ -1,0 +1,2 @@
+coding-style:
+	cargo clippy
