@@ -9,20 +9,20 @@ services:
     working_dir: /app
     entrypoint: [ "./entrypoint.sh", "npm", "run", "dev" ]
 
-  api:
-    container_name: "mrb_api"
-    image: rustlang/rust:nightly
-    working_dir: /api
-    volumes:
-      - "./api:/api"
-    command: ["./entrypoint.sh", "cargo", "run" ]
+  #api:
+  #  container_name: "mrb_api"
+  #  image: rustlang/rust:nightly
+  #  working_dir: /api
+  #  volumes:
+  #    - "./api:/api"
+  #  command: ["./entrypoint.sh", "cargo", "run" ]
   
-  api2:
-    container_name: "mrb_api2"
+  api-go:
+    container_name: "mrb_api_go"
     image: golang:1.13
     working_dir: /api
     volumes: 
-      - "./api2:/api"
+      - "./api-go:/api"
     entrypoint: ["./entrypoint.sh", "reflex", "-c", "reflex.conf"]
 
   db:
