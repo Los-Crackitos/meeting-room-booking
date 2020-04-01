@@ -1,9 +1,9 @@
-name: Api2
+name: Api-Go
 
 on:
   push:
     paths:
-      - 'api2/*'
+      - 'api-go/*'
 
 jobs:
   coding-style:
@@ -14,5 +14,5 @@ jobs:
       - name: Run golangci-lint
         uses: actions-contrib/golangci-lint@v1
       - name: Run
-        working-directory: ./api2
+        working-directory: ./api-go
         run: golangci-lint
