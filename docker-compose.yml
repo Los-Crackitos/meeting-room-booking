@@ -9,13 +9,13 @@ services:
     working_dir: /app
     entrypoint: [ "./entrypoint.sh", "npm", "run", "dev" ]
 
-  #api:
-  #  container_name: "mrb_api"
-  #  image: rustlang/rust:nightly
-  #  working_dir: /api
-  #  volumes:
-  #    - "./api:/api"
-  #  command: ["./entrypoint.sh", "cargo", "run" ]
+  api:
+    container_name: "mrb_api"
+    image: rustlang/rust:nightly
+    working_dir: /api
+    volumes:
+      - "./api:/api"
+    command: ["./entrypoint.sh", "cargo", "run" ]
   
   api-go:
     container_name: "mrb_api_go"
