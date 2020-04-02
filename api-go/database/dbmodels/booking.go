@@ -3,9 +3,9 @@ package dbmodels
 import "time"
 
 type Booking struct {
-	ID        uint
-	StartDate time.Time
-	EndDate   time.Time
-	RoomID    uint
-	UserID    uint
+	ID        int `json:"id"`
+	StartDate time.Time `json:"start_date"`
+	EndDate   time.Time	`json:"end_date"`
+	RoomID    int `json:"room_id"`
+	UserID    int `json:"user_id"`
 }

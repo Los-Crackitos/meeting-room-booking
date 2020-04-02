@@ -6,7 +6,9 @@ import (
 )
 
 func CreateUser(user *dbmodels.User) error {
+	
 	err := database.Db.Insert(user)
+	
 	if err != nil {
 		return err
 	}
@@ -16,4 +18,22 @@ func CreateUser(user *dbmodels.User) error {
 
 func GetUser(user *dbmodels.User) error {
 	return database.Db.Select(user)
+}
+
+func GetAllUsers() ([]dbmodels.User, error) {
+	var users []dbmodels.User
+
+	if err := database.Db.Model(&users).Order("id ASC").Select(); err != nil {
+		return nil, err
+	}
+
+	return users, nil	
+}
+
+func DeleteUser(user *dbmodels.User) error {
+	return database.Db.Delete(user)
+}
+
+func UpdateUser(user *dbmodels.User) error {
+	return database.Db.Update(user)
 }

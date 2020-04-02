@@ -1,6 +1,6 @@
 package dbmodels
 
 type User struct {
-	ID   uint
-	Name string
+	ID int `json:"id"`
+	Name string `json:"name"`
 }
