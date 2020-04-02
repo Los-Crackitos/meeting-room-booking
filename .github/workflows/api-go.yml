@@ -11,6 +11,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Run
-        working-directory: ./api-go
-        run: golint
+      - name: Lint Action
+        uses: samuelmeuli/lint-action@v1.4.0
+        with:
+          golint: true
