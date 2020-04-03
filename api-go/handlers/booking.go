@@ -1,13 +1,15 @@
 package handlers
 
 import (
-	"net/http"
-	"strconv"
-	"encoding/json"
-	"fmt"
-	"api-go/models"
 	"api-go/database/dbhandlers"
 	"api-go/database/dbmodels"
+	"api-go/models"
+
+	"encoding/json"
+	"fmt"
+	"net/http"
+	"strconv"
+
 	"github.com/gorilla/mux"
 )
 
@@ -59,7 +61,6 @@ func UpdateBooking(w http.ResponseWriter, r *http.Request) {
 func DeleteBooking(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-type", "application/json")
 
-
 	var param dbmodels.Booking
 
 	id, _ := strconv.Atoi(mux.Vars(r)["id"])
@@ -86,7 +87,7 @@ func GetBooking(w http.ResponseWriter, r *http.Request) {
 	id, _ := strconv.Atoi(mux.Vars(r)["id"])
 
 	param.ID = id
-	
+
 	if err := dbhandlers.GetBooking(&param); err != nil {
 		w.WriteHeader(http.StatusNotFound)
 		json.NewEncoder(w).Encode(
@@ -106,6 +107,6 @@ func GetAllBookings(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusBadRequest)
 		json.NewEncoder(w).Encode("An error occured")
 		return
-	} 
+	}
 	json.NewEncoder(w).Encode(bookings)
 }

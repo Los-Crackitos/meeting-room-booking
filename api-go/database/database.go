@@ -1,24 +1,24 @@
 package database
 
 import (
+	"fmt"
 	"log"
 	"os"
-	"fmt"
-	
+
 	"github.com/go-pg/pg"
 	"github.com/go-pg/pg/orm"
 	"github.com/joho/godotenv"
 )
 
+// Db ...
 var Db orm.DB
 
 func init() {
 	if err := godotenv.Load(); err != nil {
 		log.Println("Error loading .env file", err)
 	}
-	
-	dbHost, dbPort := os.Getenv("POSTGRES_DB_HOST"), os.Getenv("POSTGRES_DB_PORT")
 
+	dbHost, dbPort := os.Getenv("POSTGRES_DB_HOST"), os.Getenv("POSTGRES_DB_PORT")
 
 	Db = pg.Connect(&pg.Options{
 		User:     os.Getenv("POSTGRES_DB_USER"),

@@ -6,9 +6,9 @@ import (
 	"api-go/models"
 
 	"encoding/json"
+	"fmt"
 	"net/http"
 	"strconv"
-	"fmt"
 
 	"github.com/gorilla/mux"
 )
@@ -43,7 +43,7 @@ func GetUser(w http.ResponseWriter, r *http.Request) {
 	id, _ := strconv.Atoi(mux.Vars(r)["id"])
 
 	param.ID = id
-	
+
 	if err := dbhandlers.GetUser(&param); err != nil {
 		w.WriteHeader(http.StatusNotFound)
 		json.NewEncoder(w).Encode(
@@ -63,7 +63,7 @@ func GetAllUsers(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusBadRequest)
 		json.NewEncoder(w).Encode("An error occured")
 		return
-	} 
+	}
 	json.NewEncoder(w).Encode(users)
 }
 

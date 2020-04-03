@@ -1,19 +1,21 @@
 package handlers
 
 import (
-	"net/http"
-	"encoding/json"
-	"strconv"
-	"fmt"
-	"api-go/models"
 	"api-go/database/dbhandlers"
 	"api-go/database/dbmodels"
+	"api-go/models"
+
+	"encoding/json"
+	"fmt"
+	"net/http"
+	"strconv"
+
 	"github.com/gorilla/mux"
 )
 
 func CreateRoom(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
-	
+
 	var body models.Room
 
 	if err := json.NewDecoder(r.Body).Decode(&body); err != nil {
@@ -41,10 +43,9 @@ func GetAllRoom(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusBadRequest)
 		json.NewEncoder(w).Encode("An error occured")
 		return
-	} 
+	}
 	json.NewEncoder(w).Encode(rooms)
 }
-
 
 func GetRoom(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
@@ -54,7 +55,7 @@ func GetRoom(w http.ResponseWriter, r *http.Request) {
 	id, _ := strconv.Atoi(mux.Vars(r)["id"])
 
 	param.ID = id
-	
+
 	if err := dbhandlers.GetRoom(&param); err != nil {
 		w.WriteHeader(http.StatusNotFound)
 		json.NewEncoder(w).Encode(

@@ -16,7 +16,7 @@ func CreateRouter() {
 	createUserRouter(router)
 	createRoomRouter(router)
 	createBookingRouter(router)
-	
+
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8000"

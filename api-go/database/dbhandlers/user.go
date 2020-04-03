@@ -6,9 +6,9 @@ import (
 )
 
 func CreateUser(user *dbmodels.User) error {
-	
+
 	err := database.Db.Insert(user)
-	
+
 	if err != nil {
 		return err
 	}
@@ -27,7 +27,7 @@ func GetAllUsers() ([]dbmodels.User, error) {
 		return nil, err
 	}
 
-	return users, nil	
+	return users, nil
 }
 
 func DeleteUser(user *dbmodels.User) error {

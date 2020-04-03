@@ -11,7 +11,7 @@ func createBookingRouter(router *mux.Router) {
 
 	bookingRouter.
 		HandleFunc("", handlers.CreateBooking).
-		Methods("POST")	
+		Methods("POST")
 	bookingRouter.
 		HandleFunc("", handlers.GetAllBookings).
 		Methods("GET")

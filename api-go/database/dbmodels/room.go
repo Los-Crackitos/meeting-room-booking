@@ -1,7 +1,7 @@
 package dbmodels
 
 type Room struct {
-	ID       int `json:"id"`
+	ID       int    `json:"id"`
 	Name     string `json:"name"`
-	Capacity int `json:"capacity"`
+	Capacity int    `json:"capacity"`
 }

@@ -7,7 +7,7 @@ import (
 
 func CreateRoom(room *dbmodels.Room) error {
 	err := database.Db.Insert(room)
-	
+
 	if err != nil {
 		return err
 	}
@@ -26,7 +26,7 @@ func GetAllRooms() ([]dbmodels.Room, error) {
 		return nil, err
 	}
 
-	return rooms, nil	
+	return rooms, nil
 }
 
 func DeleteRoom(room *dbmodels.Room) error {
