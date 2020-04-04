@@ -14,10 +14,8 @@ import (
 var Db orm.DB
 
 func init() {
-	if err := godotenv.Load(); err != nil {
-		log.Println("Error loading .env file", err)
-	}
 
+	godotenv.Load()
 	dbHost, dbPort := os.Getenv("POSTGRES_DB_HOST"), os.Getenv("POSTGRES_DB_PORT")
 
 	Db = pg.Connect(&pg.Options{

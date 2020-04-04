@@ -1,6 +1,7 @@
 package router
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -33,8 +34,7 @@ func CreateRouter() {
 	})
 
 	handler := c.Handler(router)
-	if err := http.ListenAndServe(":"+port, handler); err != nil {
+	if err := http.ListenAndServe(fmt.Sprintf(":%s", port), handler); err != nil {
 		log.Print(err)
 	}
-
 }

@@ -12,7 +12,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Lint Action
-        uses: samuelmeuli/lint-action@v1.4.0
-        with:
-          golint: true
-          gofmt: true
+        run: goimports -w . && gofmt -w .

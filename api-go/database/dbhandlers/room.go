@@ -6,9 +6,7 @@ import (
 )
 
 func CreateRoom(room *dbmodels.Room) error {
-	err := database.Db.Insert(room)
-
-	if err != nil {
+	if err := database.Db.Insert(room); err != nil {
 		return err
 	}
 

@@ -6,11 +6,10 @@ import (
 )
 
 func CreateBooking(booking *dbmodels.Booking) error {
-	err := database.Db.Insert(booking)
-
-	if err != nil {
+	if err := database.Db.Insert(booking); err != nil {
 		return err
 	}
+
 	return database.Db.Select(booking)
 }
 

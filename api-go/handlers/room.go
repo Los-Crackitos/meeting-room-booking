@@ -3,7 +3,6 @@ package handlers
 import (
 	"api-go/database/dbhandlers"
 	"api-go/database/dbmodels"
-	"api-go/models"
 
 	"encoding/json"
 	"fmt"
@@ -16,16 +15,16 @@ import (
 func CreateRoom(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
-	var body models.Room
+	var room dbmodels.Room
 
-	if err := json.NewDecoder(r.Body).Decode(&body); err != nil {
+	if err := json.NewDecoder(r.Body).Decode(&room); err != nil {
 		w.WriteHeader(http.StatusUnprocessableEntity)
 		json.NewEncoder(w).Encode("Body malformed data")
 
 		return
 	}
 
-	if err := dbhandlers.CreateRoom(&body.Params); err != nil {
+	if err := dbhandlers.CreateRoom(&room); err != nil {
 		w.WriteHeader(http.StatusBadRequest)
 		json.NewEncoder(w).Encode("Room creation failed")
 
@@ -50,13 +49,13 @@ func GetAllRoom(w http.ResponseWriter, r *http.Request) {
 func GetRoom(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
-	var param dbmodels.Room
+	var room dbmodels.Room
 
 	id, _ := strconv.Atoi(mux.Vars(r)["id"])
 
-	param.ID = id
+	room.ID = id
 
-	if err := dbhandlers.GetRoom(&param); err != nil {
+	if err := dbhandlers.GetRoom(&room); err != nil {
 		w.WriteHeader(http.StatusNotFound)
 		json.NewEncoder(w).Encode(
 			fmt.Sprintf("Room %d do not exist", id),
@@ -64,22 +63,22 @@ func GetRoom(w http.ResponseWriter, r *http.Request) {
 
 		return
 	}
-	json.NewEncoder(w).Encode(param)
+	json.NewEncoder(w).Encode(room)
 }
 
 func UpdateRoom(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
-	var body models.Room
+	var room dbmodels.Room
 
-	if err := json.NewDecoder(r.Body).Decode(&body); err != nil {
+	if err := json.NewDecoder(r.Body).Decode(&room); err != nil {
 		w.WriteHeader(http.StatusUnprocessableEntity)
 		json.NewEncoder(w).Encode("Body malformed data")
 
 		return
 	}
 
-	if err := dbhandlers.UpdateRoom(&body.Params); err != nil {
+	if err := dbhandlers.UpdateRoom(&room); err != nil {
 		w.WriteHeader(http.StatusBadRequest)
 		json.NewEncoder(w).Encode("Room creation failed")
 
@@ -92,18 +91,15 @@ func UpdateRoom(w http.ResponseWriter, r *http.Request) {
 func DeleteRoom(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
-	var param dbmodels.Room
-
+	var room dbmodels.Room
 	id, _ := strconv.Atoi(mux.Vars(r)["id"])
+	room.ID = id
 
-	param.ID = id
-
-	if err := dbhandlers.DeleteRoom(&param); err != nil {
+	if err := dbhandlers.DeleteRoom(&room); err != nil {
 		w.WriteHeader(http.StatusNotFound)
 		json.NewEncoder(w).Encode(
 			fmt.Sprintf("Room %d do not exist", id),
 		)
-
 		return
 	}
 
