@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install Go
-      - uses: actions/setup-go@v1
+        uses: actions/setup-go@v1
       - name: Checkout
         uses: actions/checkout@v2
       - name: Lint Action
