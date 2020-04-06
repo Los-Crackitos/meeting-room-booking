@@ -2,8 +2,8 @@ name: Api-Go
 
 on:
   push:
-    paths:
-      - '/'
+    #paths:
+    #  - 'api-go/*'
 
 jobs:
   coding-style:
