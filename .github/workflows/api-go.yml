@@ -3,7 +3,7 @@ name: Api-Go
 on:
   push:
     paths:
-      - 'api-go/*'
+      - '*'
 
 jobs:
   coding-style:
