@@ -12,4 +12,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Lint Action
-        run: goimports -w . && gofmt -w .
+        run: go get golang.org/x/tools/cmd/goimports && goimports -w .
