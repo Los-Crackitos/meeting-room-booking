@@ -8,6 +8,10 @@ services:
     ports:
       - 8888:8000
       
+  api2:
+    ports:
+      - 8090:8000
+      
   pg-admin:
     ports:
       - 8080:80

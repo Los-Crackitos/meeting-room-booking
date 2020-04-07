@@ -17,6 +17,14 @@ services:
       - "./api:/api"
     command: ["./entrypoint.sh", "cargo", "run" ]
   
+  api-go:
+    container_name: "mrb_api_go"
+    image: golang:1.13
+    working_dir: /api
+    volumes: 
+      - "./api-go:/api"
+    entrypoint: ["./entrypoint.sh", "reflex", "-c", "reflex.conf"]
+
   db:
     container_name: "mrb_db"
     image: postgres:10-alpine
